@@ -34,7 +34,8 @@ A practical intro to kotlin for java devs.
 
 +++
 
-### Basics // val/var
+### Basics 
+#### val/var
 
 ```kotlin
 // val == 'final'
@@ -46,7 +47,8 @@ var anotherString = aString
 
 +++
 
-### Basics // type inference
+### Basics 
+#### type inference
 
 ```kotlin
 val anInt: Int = 42
@@ -60,6 +62,7 @@ val aCompileError: String = 98L
 +++
 
 ### Functions 
+#### structure
 
 ```kotlin
 fun add(left: Int, right: Int): Int {
@@ -67,7 +70,10 @@ fun add(left: Int, right: Int): Int {
 }
 ```
 
-### Functions // named & default args
++++
+
+### Functions 
+#### named & default args
 
 ```kotlin
 
