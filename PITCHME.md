@@ -30,11 +30,6 @@ A practical intro to kotlin for java devs.
 
 ---
 
-## Basics
-
-+++
-
-### Basics 
 #### val/var
 
 ```kotlin
@@ -45,9 +40,8 @@ val aString = "really, a string"
 var anotherString = aString
 ```
 
-+++
+---
 
-### Basics 
 #### type inference
 
 ```kotlin
@@ -57,12 +51,7 @@ val aCompileError: String = 98L
 
 ---
 
-## Functions
-
-+++
-
-### Functions 
-#### structure
+#### function structure
 
 ```kotlin
 fun add(left: Int, right: Int): Int {
@@ -70,22 +59,67 @@ fun add(left: Int, right: Int): Int {
 }
 ```
 
-+++
+---
 
-### Functions 
 #### named & default args
 
 ```kotlin
-
-fun sayHi(greeting: String = "Goodbye", name:String = "Honored Guest") {
+// note optional return type
+fun sayHi(greeting: String = "Howdy",
+          name: String = "Honored Guest") {
     println("$greeting, $name!")
 }
 
 fun main(args: Array<String>) {
     sayHi()
     sayHi(name = "Shane")
-    sayHi(name = "Dave", greeting = "welcome to the conference room")
+    // order doesn't matter with named args
+    sayHi(name = "Dave",
+            greeting = "Welcome to the conference room")
 }
 ```
 
-- sayBye(name = "Builder Pattern")      <!-- .element: class="fragment" -->
+- ```kotlin fun sayBye(name = "Builder Pattern")```      <!-- .element: class="fragment" -->
+
+---
+
+## expression returns
+
+```kotlin
+fun getServiceResult(condition: Boolean): String {
+    val result = if (condition) {
+        "Service OK"
+    } else {
+        "Service Failure"
+    }
+    return result
+}
+```
+
+---
+
+## expression returns
+
+```kotlin
+// or even better:
+fun getServiceResult(condition: Boolean): String {
+    return if (condition) {
+        "Service OK"
+    } else {
+        "Service Failure"
+    }
+}
+```
+
+---
+
+## expression returns
+
+```kotlin
+// whaaat
+fun getServiceResult(condition: Boolean) = if (condition) {
+    "Service OK"
+} else {
+    "Service Failure"
+}
+```
