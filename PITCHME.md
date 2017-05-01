@@ -34,7 +34,7 @@ A practical intro to kotlin for java devs.
 
 ```kotlin
 // val == 'final'
-val aString = "really, a string"
+val aString = "really, a string" // <- semicolons unnecessary
 
 // var == 'not final'
 var anotherString = aString
@@ -79,7 +79,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-- ```kotlin fun sayBye(name = "Builder Pattern")```      <!-- .element: class="fragment" -->
+- `fun sayBye(name = "Builder Pattern")`      <!-- .element: class="fragment" -->
 
 ---
 
