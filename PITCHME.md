@@ -96,7 +96,7 @@ fun getServiceResult(condition: Boolean): String {
 }
 ```
 
----
++++
 
 ## expression returns
 
@@ -111,7 +111,7 @@ fun getServiceResult(condition: Boolean): String {
 }
 ```
 
----
++++
 
 ## expression returns
 
