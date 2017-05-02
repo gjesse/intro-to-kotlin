@@ -1,7 +1,8 @@
 package net.loshodges.intro.clazz
 
 
-class RateLimiter(val maxPermits: Int, val refillRate: Double) {
+class RateLimiter(val maxPermits: Int,
+                  val refillRate: Double) {
 
     var availablePermits = maxPermits
 

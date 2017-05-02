@@ -128,7 +128,8 @@ fun getServiceResult(condition: Boolean) = if (condition) {
 ## classes
 
 ```kotlin
-class RateLimiter(val maxPermits: Int, val refillRate: Double) {
+class RateLimiter(val maxPermits: Int, 
+                  val refillRate: Double) {
 
     var availablePermits = maxPermits
 
@@ -146,7 +147,7 @@ class RateLimiter(val maxPermits: Int, val refillRate: Double) {
 }
 ```
 
----
++++
 
 ## classes
 
@@ -154,7 +155,7 @@ class RateLimiter(val maxPermits: Int, val refillRate: Double) {
 val limiter = RateLimiter(50, 2)
 ```
 
----
++++
 
 ## data classes
 
@@ -181,13 +182,4 @@ enum class Gender {
   - .hashCode()      <!-- .element: class="fragment" -->
   - .toString()      <!-- .element: class="fragment" -->
   - .copy()          <!-- .element: class="fragment" -->
-  
-```kotlin
-val person = Person(
-        Name("Mattie", "Brickowski"),
-        24,
-        Gender.MALE
-)
-println(person.copy(age = 25))
-// Person(name=Name(first=Mattie, last=Brickowski, middle=null), age=25, gender=MALE)
-```
+  - `person.copy(age = 25)` <!-- .element: class="fragment" -->
