@@ -79,7 +79,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-- `fun sayBye(name = "Builder Pattern")`      <!-- .element: class="fragment" -->
+- fun sayBye(name = "Builder Pattern")      <!-- .element: class="fragment" -->
 
 ---
 
@@ -122,4 +122,72 @@ fun getServiceResult(condition: Boolean) = if (condition) {
 } else {
     "Service Failure"
 }
+```
+---
+
+## classes
+
+```kotlin
+class RateLimiter(val maxPermits: Int, val refillRate: Double) {
+
+    var availablePermits = maxPermits
+
+    fun getPermits(requested: Int): Boolean {
+        refill()
+        if (this.availablePermits >= requested) {
+            this.availablePermits-=requested
+        }
+        return true
+    }
+
+    private fun refill() {
+        TODO("not implemented")
+    }
+}
+```
+
+---
+
+## classes
+
+```kotlin
+val limiter = RateLimiter(50, 2)
+```
+
+---
+
+## data classes
+
+```kotlin
+data class Person(val name: Name,
+                  val age: Int,
+                  val gender: Gender)
+
+data class Name(val first: String,
+                val last: String,
+                val middle: String? = null)
+
+enum class Gender {
+    MALE,FEMALE,NA
+}
+```
+
++++
+
+## data classes
+
+- automatic:
+  - .equals()        <!-- .element: class="fragment" -->
+  - .hashCode()      <!-- .element: class="fragment" -->
+  - .toString()      <!-- .element: class="fragment" -->
+  - .copy()          <!-- .element: class="fragment" -->
+  
+```kotlin
+val person = Person(
+        Name("Mattie", "Brickowski"),
+        24,
+        Gender.MALE
+)
+println(person.copy(age = 25))
+// Person(name=Name(first=Mattie, last=Brickowski, middle=null), age=25, gender=MALE)
 ```
