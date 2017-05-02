@@ -7,15 +7,10 @@ class RateLimiter(val maxPermits: Int,
     var availablePermits = maxPermits
 
     fun getPermits(requested: Int): Boolean {
-        refill()
         if (this.availablePermits >= requested) {
             this.availablePermits-=requested
         }
         return true
-    }
-
-    private fun refill() {
-        TODO("not implemented")
     }
 }
 
