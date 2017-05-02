@@ -178,8 +178,7 @@ enum class Gender {
 ## data classes
 
 - automatic:
-  - .equals()        <!-- .element: class="fragment" -->
-  - .hashCode()      <!-- .element: class="fragment" -->
-  - .toString()      <!-- .element: class="fragment" -->
-  - .copy()          <!-- .element: class="fragment" -->
-  - `person.copy(age = 25)` <!-- .element: class="fragment" -->
+  - .equals()               <!-- .element: class="fragment" -->
+  - .hashCode()             <!-- .element: class="fragment" -->
+  - .toString()             <!-- .element: class="fragment" -->
+  - person.copy(age = 25)   <!-- .element: class="fragment" -->
