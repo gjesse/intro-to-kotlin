@@ -134,10 +134,12 @@ class RateLimiter(val maxPermits: Int,
     var availablePermits = maxPermits
 
     fun getPermits(requested: Int): Boolean {
-        if (this.availablePermits >= requested) {
+        return if (this.availablePermits >= requested) {
             this.availablePermits-=requested
+            true
+        } else {
+            false
         }
-        return true
     }
 }
 ```
