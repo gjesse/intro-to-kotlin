@@ -179,3 +179,26 @@ enum class Gender {
   - .hashCode()             <!-- .element: class="fragment" -->
   - .toString()             <!-- .element: class="fragment" -->
   - person.copy(age = 25)   <!-- .element: class="fragment" -->
+  
+---
+
+## null safety
+
+```kotlin
+val name: Name = Name(first = "Cliff", last="Martinez")
+
+val maybeName: Name? = null
+```
+
++++
+
+## null safety
+
+![null assignemnt error](assets/null-assignment.png) 
+
++++
+
+## null-safe operations
+
+![null safe operation error](assets/null-safe.png)
+

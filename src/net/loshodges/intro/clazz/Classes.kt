@@ -37,3 +37,14 @@ fun main(args: Array<String>) {
     person.copy(age = 25)
     println(person)
 }
+
+fun nullExample() {
+    //var name: Name = Name(first = "Cliff", last="Martinez")
+    //name = null
+
+
+   // val name: Name? = Name(first = "Cliff", last="Martinez")
+   // println(name.first)
+
+
+}
