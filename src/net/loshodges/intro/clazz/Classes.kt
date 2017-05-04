@@ -8,7 +8,7 @@ class RateLimiter(val maxPermits: Int,
 
     fun getPermits(requested: Int): Boolean {
         return if (this.availablePermits >= requested) {
-            this.availablePermits-=requested
+            this.availablePermits -= requested
             true
         } else {
             false
@@ -25,7 +25,7 @@ data class Name(val first: String,
                 val middle: String? = null)
 
 enum class Gender {
-    MALE,FEMALE,NA
+    MALE, FEMALE, NA
 }
 
 fun main(args: Array<String>) {
@@ -43,13 +43,14 @@ fun nullExample() {
     //name = null
 
 
-   // val name: Name? = Name(first = "Cliff", last="Martinez")
-   // println(name.first)
+    // val name: Name? = Name(first = "Cliff", last="Martinez")
+    // println(name.first)
 
-    val name: Name? = Name(first = "Cliff", last="Martinez")
+    val name: Name? = Name(first = "Cliff", last = "Martinez")
 
     val maybeNullMiddle: String? = name?.middle
     val middleWithDefault: String = name?.middle ?: "n/a"
-    val middleOrError: String = name?.middle ?: throw RuntimeException("noooo")
+    val middleOrError: String = name?.middle ?:
+            throw RuntimeException("noooo")
 
 }
