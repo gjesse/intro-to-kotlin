@@ -202,3 +202,12 @@ val maybeName: Name? = null
 
 ![null safe operation error](assets/null-safe.png)
 
++++
+
+## elvis :?
+
+```kotlin
+val maybeNullMiddle: String? = name?.middle
+val middleWithDefault: String = name?.middle ?: "n/a"
+val middleOrError: String = name?.middle ?: throw RuntimeException("noooo")
+```

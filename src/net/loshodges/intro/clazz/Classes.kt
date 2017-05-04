@@ -46,5 +46,10 @@ fun nullExample() {
    // val name: Name? = Name(first = "Cliff", last="Martinez")
    // println(name.first)
 
+    val name: Name? = Name(first = "Cliff", last="Martinez")
+
+    val maybeNullMiddle: String? = name?.middle
+    val middleWithDefault: String = name?.middle ?: "n/a"
+    val middleOrError: String = name?.middle ?: throw RuntimeException("noooo")
 
 }
