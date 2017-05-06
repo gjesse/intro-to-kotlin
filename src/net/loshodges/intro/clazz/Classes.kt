@@ -82,3 +82,17 @@ fun deconExample(person: Person) {
     val (name, age, gender) = person
 
 }
+
+fun extExample(idString: String?) {
+    if (!idString.isValidId()) {
+        throw RuntimeException("invalid")
+    }
+}
+
+fun String?.isValidId(): Boolean {
+    return if (this == null) {
+        false
+    } else {
+        this.length in 4..8
+    }
+}

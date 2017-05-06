@@ -260,3 +260,29 @@ val pair = Pair("left", 2)
 val (first, second) = pair
 
 ```
+
+---
+
+## extension functions
+
+```kotlin
+
+fun String?.isValidId(): Boolean {
+    return if (this == null) {
+        false
+    } else {
+        this.length in 4..8
+    }
+}
+
+```
+
+## extension functions
+
+```kotlin
+fun extExample(idString: String?) {
+    if (!idString.isValidId()) {
+        throw RuntimeException("invalid")
+    }
+}
+```
