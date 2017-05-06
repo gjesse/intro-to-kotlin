@@ -54,3 +54,31 @@ fun nullExample() {
             throw RuntimeException("noooo")
 
 }
+
+interface Job
+class FBJob: Job
+class TWJob: Job
+
+fun castingExample(job: Job) {
+    val fbJob = job as FBJob
+}
+
+fun smartCastExample(job: Job) {
+    when(job) {
+        is FBJob -> handleFbJob(job)
+        is TWJob -> handleTWJob(job)
+        else -> println("unknown job $job")
+    }
+}
+fun handleTWJob(job: TWJob) {
+    TODO("not implemented")
+}
+fun handleFbJob(job: FBJob) {
+    TODO("not implemented")
+}
+
+
+fun deconExample(person: Person) {
+    val (name, age, gender) = person
+
+}

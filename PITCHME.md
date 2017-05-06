@@ -215,4 +215,48 @@ val middleOrError: String = name?.middle ?:
 
 ---
 
-## casting
+## casting - unchecked
+
+```kotlin
+interface Job
+class FBJob: Job
+class TWJob: Job
+
+fun castingExample(job: Job) {
+    val fbJob = job as FBJob
+}
+```
+
++++
+
+## casting - checked + smart
+
+```kotlin
+fun smartCastExample(job: Job) {
+    when(job) {
+        is FBJob -> handleFbJob(job)
+        is TWJob -> handleTWJob(job)
+        else -> println("unknown job $job")
+    }
+}
+fun handleTWJob(job: TWJob) {
+    TODO("not implemented")
+}
+fun handleFbJob(job: FBJob) {
+    TODO("not implemented")
+}
+```
+
+---
+
+## deconstruction
+
+```kotlin
+// with data classes
+val (name, age, gender) = person
+
+// or tuple classes
+val pair = Pair("left", 2)
+val (first, second) = pair
+
+```
