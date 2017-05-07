@@ -102,18 +102,24 @@ fun String?.isValidId(): Boolean {
 
 sealed class ServiceResult<T>
 data class Success<T>(val result: T) : ServiceResult<T>()
-data class Error<T>(val message: String) : ServiceResult<T>()
+sealed class Failure : ServiceResult<Nothing>() {
+    data class Permanent(val message: String): Failure()
+    data class Retriable(val message: String, val retriesRemaining: Int): Failure()
+    data class Unknown(val  message: String): Failure()
+}
 
-fun handleResult(res: ServiceResult<Person>) {
+fun <T> handleResult(res: ServiceResult<T>) {
     return when (res) {
         is Success -> handleSuccess(res.result)
-        //is Error -> handleError(res.message)
+        is Failure -> {
+            when (res) {
+                is Failure.Permanent -> TODO()
+                is Failure.Retriable -> TODO()
+                is Failure.Unknown -> TODO()
+            }
+        }
     }
 }
-
-fun handleSuccess(successPerson: Person){
-    TODO("not implemented")
-}
-fun handleError(errorMsg: String) {
-    TODO("not implemented")
+fun <T> handleSuccess(successPerson: T) {
+  TODO()
 }
