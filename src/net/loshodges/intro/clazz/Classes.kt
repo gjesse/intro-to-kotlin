@@ -56,23 +56,25 @@ fun nullExample() {
 }
 
 interface Job
-class FBJob: Job
-class TWJob: Job
+class FBJob : Job
+class TWJob : Job
 
 fun castingExample(job: Job) {
     val fbJob = job as FBJob
 }
 
 fun smartCastExample(job: Job) {
-    when(job) {
+    when (job) {
         is FBJob -> handleFbJob(job)
         is TWJob -> handleTWJob(job)
         else -> println("unknown job $job")
     }
 }
+
 fun handleTWJob(job: TWJob) {
     TODO("not implemented")
 }
+
 fun handleFbJob(job: FBJob) {
     TODO("not implemented")
 }
@@ -95,4 +97,23 @@ fun String?.isValidId(): Boolean {
     } else {
         this.length in 4..8
     }
+}
+
+
+sealed class ServiceResult<T>
+data class Success<T>(val result: T) : ServiceResult<T>()
+data class Error<T>(val message: String) : ServiceResult<T>()
+
+fun handleResult(res: ServiceResult<Person>) {
+    return when (res) {
+        is Success -> handleSuccess(res.result)
+        //is Error -> handleError(res.message)
+    }
+}
+
+fun handleSuccess(successPerson: Person){
+    TODO("not implemented")
+}
+fun handleError(errorMsg: String) {
+    TODO("not implemented")
 }

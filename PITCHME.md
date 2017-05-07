@@ -239,12 +239,8 @@ fun smartCastExample(job: Job) {
         else -> println("unknown job $job")
     }
 }
-fun handleTWJob(job: TWJob) {
-    TODO("not implemented")
-}
-fun handleFbJob(job: FBJob) {
-    TODO("not implemented")
-}
+fun handleTWJob(job: TWJob) { /* todo */ }
+fun handleFbJob(job: FBJob) { /* todo */ }
 ```
 
 ---
@@ -274,8 +270,9 @@ fun String?.isValidId(): Boolean {
         this.length in 4..8
     }
 }
-
 ```
+
++++
 
 ## extension functions
 
@@ -286,3 +283,50 @@ fun extExample(idString: String?) {
     }
 }
 ```
+
+
+---
+
+## sealed classes
+
+```kotlin
+sealed class ServiceResult<T>
+data class Success<T>(val result: T) : ServiceResult<T>()
+data class Error<T>(val message: String) : ServiceResult<T>()
+```
+
++++
+
+## sealed classes
+
+```kotlin
+fun handleResult(res: ServiceResult<Person>) {
+    return when (res) {
+        is Success -> handleSuccess(res.result)
+        is Error -> handleError(res.message)
+    }
+}
+
+fun handleSuccess(successPerson: Person) { /* todo */}
+fun handleError(errorMsg: String) { /* todo */}
+```
+
++++
+
+## sealed classes
+
+![sealed exhaustion error](assets/sealed.png)
+
+
+---
+---
+TODO:
+  objects
+  delegation
+  lambdas
+    - method ref
+  receivers
+  stdlib
+  sequences
+  coroutines
+  Type aliases
