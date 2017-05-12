@@ -328,10 +328,73 @@ fun <T> handleSuccess(successPerson: T) {
 
 ![sealed exhaustion error](assets/sealed.png)
 
-
 ---
+
+## objects
+
+```kotlin
+// singleton object
+object SingletonWhatever {
+    fun getWhat() = "What"
+    fun getEver() = "eveeerrr"
+}
+```
+
++++
+
+## objects
+
+```kotlin
+// anonymous objects
+fun attachListener() {
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {}
+        override fun mouseEntered(e: MouseEvent) {}
+    })
+}
+```
+
++++
+## objects
+
+```kotlin
+// temporary object
+fun anytimeObject() {
+    val point = object {
+        val x = 22.2
+        val y = 44.2
+    }
+    print(point.x)
+}
+```
+---
+
+## delegation
+
+  - 2 types of delegation
+  - class delegation
+  - property delegation
+
++++
+
+## delegation
+
+```kotlin
+// class delegation - awesome
+interface Answer {
+    fun getAnswer(): Double
+}
+
+class Answermpl: Answer {
+    override fun getAnswer() = 42.2
+}
+
+class AnswerPlus(val answer: Answer) : Answer by answer {
+    // can do other stuff here
+}
+```
+
 - TODO:
-  - objects
   - delegation
   - lambdas
     - method ref

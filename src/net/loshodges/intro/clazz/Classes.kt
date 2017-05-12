@@ -123,3 +123,29 @@ fun <T> handleResult(res: ServiceResult<T>) {
 fun <T> handleSuccess(successPerson: T) {
   TODO()
 }
+
+
+object SingletonWhatever {
+    fun getWhat() = "What"
+    fun getEver() = "eveeerrr"
+}
+
+// temporary object
+fun anytimeObject() {
+    val point = object {
+        val x = 22.2
+        val y = 44.2
+    }
+    print(point.x)
+}
+
+interface Answer {
+    fun getAnswer(): Double
+}
+class Answermpl: Answer {
+    override fun getAnswer() = 42.2
+}
+
+class AnswerPlus(val answer: Answer) : Answer by answer {
+    // can do other stuff here
+}
