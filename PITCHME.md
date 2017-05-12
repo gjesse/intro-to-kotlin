@@ -245,16 +245,49 @@ fun handleFbJob(job: FBJob) { /* todo */ }
 
 ---
 
+## when
+
+```kotlin
+fun demoWhen(x : Int) {
+    when (x) {
+        1 -> print("x is 1")
+        2, 6 -> print("x is 2 or 6")
+        3, 4 -> print("x is 3 or 4")
+        5, in 7..10 -> print("x is 5, 7, 8, 9, or 10")
+        else -> print("x is out of range")
+    }
+}
+```
+---
+## string fun
+
+```kotlin
+fun stringFun(a: String, b: String) {
+    println("a = $a, b length = ${b.length}")
+}
+```
++++
+## more string fun
+```kotlin
+val aBigLongString = """
+    select say, goodbye
+    FROM arduous_ml_strings
+    WHERE language = 'kotlin';
+"""
+```
+
+---
 ## deconstruction
 
 ```kotlin
 // with data classes
-val (name, age, gender) = person
-
-// or tuple classes
-val pair = Pair("left", 2)
-val (first, second) = pair
-
+fun fablesOfTheDeconstruction() {
+    val (name, age, gender) = person
+    
+    // or tuple classes
+    val pair = Pair("left", 2)
+    val (first, second) = pair
+}
 ```
 
 ---
@@ -397,7 +430,9 @@ fun act() {
 
 ---
 - TODO:
+
   - delegation
+  - equals that makes sense
   - lambdas
     - method ref
   - receivers

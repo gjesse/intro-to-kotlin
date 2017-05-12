@@ -154,3 +154,7 @@ fun act() {
     val aPlus = AnswerPlus(AnswerImpl())
     println(aPlus.getAnswer())
 }
+
+fun stringFun(a: String, b: String) {
+    println("a = $a, b length = ${b.length}")
+}
