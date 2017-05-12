@@ -385,7 +385,7 @@ interface Answer {
     fun getAnswer(): Double
 }
 
-class Answermpl: Answer {
+class AnswerImpl: Answer {
     override fun getAnswer() = 42.2
 }
 
