@@ -142,10 +142,15 @@ fun anytimeObject() {
 interface Answer {
     fun getAnswer(): Double
 }
-class Answermpl: Answer {
+class AnswerImpl: Answer {
     override fun getAnswer() = 42.2
 }
 
 class AnswerPlus(val answer: Answer) : Answer by answer {
     // can do other stuff here
+}
+
+fun act() {
+    val aPlus = AnswerPlus(AnswerImpl())
+    println(aPlus.getAnswer())
 }

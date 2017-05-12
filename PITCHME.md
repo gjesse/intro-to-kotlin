@@ -262,7 +262,6 @@ val (first, second) = pair
 ## extension functions
 
 ```kotlin
-
 fun String?.isValidId(): Boolean {
     return if (this == null) {
         false
@@ -384,16 +383,19 @@ fun anytimeObject() {
 interface Answer {
     fun getAnswer(): Double
 }
-
 class AnswerImpl: Answer {
     override fun getAnswer() = 42.2
 }
-
-class AnswerPlus(val answer: Answer) : Answer by answer {
+class AnswerPlus(answer: Answer) : Answer by answer {
     // can do other stuff here
+}
+fun act() {
+    val aPlus = AnswerPlus(AnswerImpl())
+    println(aPlus.getAnswer())
 }
 ```
 
+---
 - TODO:
   - delegation
   - lambdas
