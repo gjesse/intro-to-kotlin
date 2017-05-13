@@ -409,7 +409,7 @@ fun anytimeObject() {
 
 +++
 
-## delegation
+## class delegation
 
 ```kotlin
 // class delegation - awesome
@@ -428,10 +428,45 @@ fun act() {
 }
 ```
 
++++
+
+## property delegation
+
+```kotlin
+class Example{
+    var valByExampleDelegate by ExDelegate()
+}
+
+class ExDelegate {
+    operator fun  getValue(ref: Example, property: KProperty<*>): Any {
+        return "$ref, delegated '${property.name}' to me!"
+    }
+
+    operator fun setValue(ref: Example, property: KProperty<*>, value: Any) {
+        println("$value has been assigned to '${property.name} in $ref.'")
+    }
+}
+```
+
++++
+
+## property delegation
+
+```kotlin
+class Example{
+    val lazyVal by lazy {
+        println("lazy was called")
+        "lazy-return-val"
+    }
+
+    var watched by Delegates.observable("<unset>", {
+        p, old, new -> println("$old becomes $new")
+    })
+}
+```
 ---
 - TODO:
 
-  - delegation
   - equals that makes sense
   - lambdas
     - method ref
