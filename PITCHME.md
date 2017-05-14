@@ -485,7 +485,6 @@ class Example{
 
 ```kotlin
 fun lambda() {
-    
     val sum = { a: Int, b: Int -> a + b }
     sum(1, 2) // 3
 }
@@ -497,7 +496,6 @@ fun lambda() {
 
 ```kotlin
 fun lambda2() {
-
     fun doSomething(a: Int, something: (Int) -> Int): Int {
         return something(a)
     }
@@ -522,15 +520,113 @@ fun lambda3() {
 ```
 ---
 
+## receiver functions
 
-## TODO:
+```kotlin
+             // `build` can be thought of as a local extension function 
+             // on HashMap
+fun buildMap(build: HashMap<Any,Any>.() -> Unit): Map<Any,Any> {
+    val map: HashMap<Any,Any> = HashMap()
+    map.build()
+    return map;
+}
+```
 
-  - lambdas
-    - method ref
-  - receivers
-  - sequences & collection manipulation
-  - stdlib awesomeness
-    strings / let / apply
-  - coroutines
-  - Type aliases
++++
+## receiver functions
+
+```kotlin
+fun buildMap(build: HashMap<Any,Any>.() -> Unit): Map<Any,Any> {
+    val map: HashMap<Any,Any> = HashMap()
+    map.build()
+    return map;
+}
+
+fun example() {
+    val map = buildMap {
+        this.put("k","v")
+        (1..10).forEach { put("k" + it, "it's $it") }
+    }
+}
+```
+
+---
+
+## stdlib - apply
+```kotlin
+public inline fun <T> T.apply(block: T.() -> Unit): T { 
+    block(); 
+    return this 
+}
+
+```
+
++++
+## stdlib - apply
+```kotlin
+fun stdLibReceivers() {
+    val p = Properties().apply {
+        this.put("p1", 22)
+        this.put("p2", 42)
+    }
+}
+```
+
+## stdlib - let
+```kotlin
+public inline fun <T, R> T.let(block: (T) -> R): R = block(this)
+```
+
++++
+## stdlib - let
+```kotlin
+fun stdLibReceivers() {
+    val last = Name("joe", "schmoe").let {
+        this.last
+    }
+}
+```
+
++++
+## stdlib - strings
+
+![string functions](assets/stringfn.png) 
+
+---
+
+## collection goodies
+
+```kotlin
+fun collectionGoodies() {
+    val list:List<Iterable<Int>> = listOf(
+            listOf(1,2,3,4,5,6,7,8,9,10),
+            4..55
+    )
+
+    val groupedFlattenedFiltered : Map<Int, List<Int>> = list
+            .flatten()
+            .filter { it % 2 == 0 }
+            .map{ it - 1 }
+            .filter {
+                it > 4
+            }
+            .groupBy { it % 4 }
+}
+```
+---
+
+## conclusion
+
+  * easy to get started <!-- .element: class="fragment" -->
+  * it's a lot of little things <!-- .element: class="fragment" -->
+  * explicit nulls are yuuuge <!-- .element: class="fragment" -->
+  * minimizing verbosity == maximizing readability <!-- .element: class="fragment" -->
+  * easier read == easier to review == fewer bugs <!-- .element: class="fragment" -->
+
+---
+
+## resources
+
+  * https://kotlinlang.org/community/
+  * https://github.com/Kotlin/kotlin-koans
   

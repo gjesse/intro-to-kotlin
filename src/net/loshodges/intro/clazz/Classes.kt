@@ -1,5 +1,6 @@
 package net.loshodges.intro.clazz
 
+import java.util.*
 import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
 
 
@@ -184,3 +185,48 @@ fun lambda3() {
 
     val fName = Name::first
 }
+
+fun stdLibReceivers() {
+    val p = Properties().apply {
+        this.put("p1", 22)
+        this.put("p2", 42)
+    }
+
+
+
+fun collectionGoodies() {
+    val list:List<Iterable<Int>> = listOf(
+            listOf(1,2,3,4,5,6,7,8,9,10),
+            4..55
+    )
+
+    // WARNING: NOT LAZY
+    val groupedFlattenedFiltered : Map<Int, List<Int>> = list
+            .asSequence()
+            .flatten()
+            .filter { it % 2 == 0 }
+            .map{ it - 1 }
+            .filter {
+                it > 4
+            }
+            .groupBy { it % 4 }
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
