@@ -483,8 +483,43 @@ class Example{
 
 ## lambdas
 
+```kotlin
+fun lambda() {
+    
+    val sum = { a: Int, b: Int -> a + b }
+    sum(1, 2) // 3
+}
+```
 
++++
 
+## lambas
+
+```kotlin
+fun lambda2() {
+
+    fun doSomething(a: Int, something: (Int) -> Int): Int {
+        return something(a)
+    }
+
+    val res = doSomething(4, { input -> input / 2 })
+    
+    val res2 = doSomething(2) {
+        it * 2
+    }
+}
+```
+
++++
+
+```kotlin
+fun lambda3() {
+    listOf(Name("joe", "schmoe"))
+            .map { Name::last }
+    
+    val fName = Name::first
+}
+```
 ---
 
 

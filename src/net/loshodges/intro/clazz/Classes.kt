@@ -1,5 +1,7 @@
 package net.loshodges.intro.clazz
 
+import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
+
 
 class RateLimiter(val maxPermits: Int,
                   val refillRate: Double) {
@@ -103,9 +105,9 @@ fun String?.isValidId(): Boolean {
 sealed class ServiceResult<T>
 data class Success<T>(val result: T) : ServiceResult<T>()
 sealed class Failure : ServiceResult<Nothing>() {
-    data class Permanent(val message: String): Failure()
-    data class Retriable(val message: String, val retriesRemaining: Int): Failure()
-    data class Unknown(val  message: String): Failure()
+    data class Permanent(val message: String) : Failure()
+    data class Retriable(val message: String, val retriesRemaining: Int) : Failure()
+    data class Unknown(val message: String) : Failure()
 }
 
 fun <T> handleResult(res: ServiceResult<T>) {
@@ -120,8 +122,9 @@ fun <T> handleResult(res: ServiceResult<T>) {
         }
     }
 }
+
 fun <T> handleSuccess(successPerson: T) {
-  TODO()
+    TODO()
 }
 
 
@@ -142,7 +145,8 @@ fun anytimeObject() {
 interface Answer {
     fun getAnswer(): Double
 }
-class AnswerImpl: Answer {
+
+class AnswerImpl : Answer {
     override fun getAnswer() = 42.2
 }
 
@@ -157,4 +161,26 @@ fun act() {
 
 fun stringFun(a: String, b: String) {
     println("a = $a, b length = ${b.length}")
+}
+
+fun lambda() {
+    val sum = { a: Int, b: Int -> a + b }
+    sum(1, 2) // 3
+
+    fun doSomething(a: Int, something: (Int) -> Int): Int {
+        return something(a)
+    }
+
+    val res = doSomething(4, { input -> input / 2 })
+
+    val res2 = doSomething(2) {
+        it * 2
+    }
+}
+
+fun lambda3() {
+    listOf(Name("joe", "schmoe"))
+            .map { Name::last }
+
+    val fName = Name::first
 }
