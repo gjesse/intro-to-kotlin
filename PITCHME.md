@@ -182,6 +182,21 @@ enum class Gender {
   
 ---
 
+
+## .equals() == `==`
+
+```kotlin
+fun equals() {
+
+    val p1 = Name(first = "joe", last = "schmoe")
+    val p2 = Name(first = "joe", last = "schmoe")
+    
+    p1 == p2 // true: structural equals
+    p1 === p2 // false: identity equals
+}
+```
+---
+
 ## null safety
 
 ```kotlin
@@ -465,13 +480,22 @@ class Example{
 }
 ```
 ---
-- TODO:
 
-  - equals that makes sense
+## lambdas
+
+
+
+---
+
+
+## TODO:
+
   - lambdas
     - method ref
   - receivers
-  - stdlib
-  - sequences
+  - sequences & collection manipulation
+  - stdlib awesomeness
+    strings / let / apply
   - coroutines
   - Type aliases
+  
