@@ -3,26 +3,26 @@
 
 ![LOGO](https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png)
 
-A overview of kotlin language features.
+A overview of Kotlin language and features.
 
 ---
 
 ## What is it?
 
-- developed by jetbrains
-- more consice than java
-- interoperable
-- pragmatic
-- safe
+- "Statically typed programming language for the JVM, Android and the browser"
+- 100% interoperable with Java™     <!-- .element: class="fragment" -->
+- developed by JetBrains            <!-- .element: class="fragment" -->
+- concise                           <!-- .element: class="fragment" -->
+- safe                              <!-- .element: class="fragment" -->
 
 ---
 
 ## Where can I use it?
 
-- jvm
-- android
-- javascript
-- native targets
+- jvm                   <!-- .element: class="fragment" -->
+- android               <!-- .element: class="fragment" -->
+- javascript            <!-- .element: class="fragment" -->
+- native targets        <!-- .element: class="fragment" -->
 
 ---
 
