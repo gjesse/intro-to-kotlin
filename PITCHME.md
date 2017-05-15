@@ -34,10 +34,10 @@ A overview of Kotlin language and features.
 
 ```kotlin
 // val == 'final'
-val aString = "really, a string" // <- semicolons unnecessary
+val aString: String = "really, a string" // <- semicolons unnecessary
 
 // var == 'not final'
-var anotherString = aString
+var anotherString: String = aString
 ```
 
 ---
@@ -45,8 +45,8 @@ var anotherString = aString
 #### type inference
 
 ```kotlin
-val anInt: Int = 42
-val aCompileError: String = 98L
+val anInt = 42 // couldn't not be an int
+var aString = "aString" // definitely a string
 ```
 
 ---
@@ -55,6 +55,8 @@ val aCompileError: String = 98L
 
 ```kotlin
 fun add(left: Int, right: Int): Int {
+    // types in parameter lists are required
+    // return types are optional
     return left + right
 }
 ```
