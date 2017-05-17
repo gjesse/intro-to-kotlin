@@ -660,6 +660,7 @@ fun collectionGoodies() {
 ---  
 ## addendum: who is using it?
   
+  * https://twitter.com/kotlin/status/864912772487942148
   * jetbrains 
   * square
   * pinterest
