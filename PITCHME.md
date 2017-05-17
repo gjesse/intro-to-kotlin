@@ -656,4 +656,14 @@ fun collectionGoodies() {
 
   * https://kotlinlang.org/community/
   * https://github.com/Kotlin/kotlin-koans
+    
+---  
+## addendum: who is using it?
   
+  * jetbrains 
+  * square
+  * pinterest
+  * uber
+  * lots more
+  * https://gist.github.com/cbruegg/d982a4bdc47757633f5355d4f1252d0e#who-is-using-kotlin
+
