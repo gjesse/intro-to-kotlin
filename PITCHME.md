@@ -63,6 +63,53 @@ fun add(left: Int, right: Int): Int {
 
 ---
 
+
+## null safety
+
+```kotlin
+val name: String = "Joe"
+
+val maybeName: String? = null
+```
+
++++
+
+## null safety
+
+```kotlin
+val name: String = null // COMPILE ERROR
+
+val maybeName: String = null; // ok
+
+fun doIt() = println(maybeName.length) // COMPILE ERROR
+```
++++
+
+## null safety & mutability
+```kotlin
+fun mutableSafety() {
+    var name: String? = "foo"
+    if (name != null) {
+        println(name.length) // COMPILE ERROR
+    }
+}
+```
++++
+
+## ? & elvis (?:)
+
+```kotlin
+val maybeNullMiddle: String? = name?.middle
+val middleWithDefault: String = name?.middle ?: "n/a"
+val middleOrError: String = name?.middle ?:
+        throw RuntimeException("left the building")
+```
+
+Note:
+Super useful for validating a deeper object tree in which many nodes might be null
+
+---
+
 #### named & default args
 
 ```kotlin
@@ -216,42 +263,6 @@ fun equals() {
     p1 === p2 // false: identity equals
 }
 ```
----
-
-## null safety
-
-```kotlin
-val name: Name = Name(first = "Cliff", last="Martinez")
-
-val maybeName: Name? = null
-```
-
-+++
-
-## null safety
-
-![null assignemnt error](assets/null-assignment.png) 
-
-+++
-
-## null-safe operations
-
-![null safe operation error](assets/null-safe.png)
-
-+++
-
-## elvis :?
-
-```kotlin
-val maybeNullMiddle: String? = name?.middle
-val middleWithDefault: String = name?.middle ?: "n/a"
-val middleOrError: String = name?.middle ?:
-        throw RuntimeException("left the building")
-```
-
-Note:
-Super useful for validating a deeper object tree in which many nodes might be null
-
 ---
 
 ## casting - unchecked
@@ -519,7 +530,7 @@ fun lambda() {
 
 +++
 
-## lambas
+## lambdas
 
 ```kotlin
 fun lambda2() {
@@ -537,12 +548,29 @@ fun lambda2() {
 
 +++
 
+## lambdas
 ```kotlin
 fun lambda3() {
     listOf(Name("joe", "schmoe"))
             .map { Name::last }
     
     val fName = Name::first
+}
+```
+
++++
+
+## lambdas
+
+```kotlin
+// these are closures
+fun closure() {
+    var sum = 0
+    (1..20).filter { it > 0 }
+            .forEach {
+                sum += it
+            }
+    print(sum)
 }
 ```
 ---
@@ -644,7 +672,7 @@ fun collectionGoodies() {
 
 ## conclusion
 
-  * easy to get started <!-- .element: class="fragment" -->
+  * interoperable - easy to get started <!-- .element: class="fragment" -->
   * it's a lot of little things <!-- .element: class="fragment" -->
   * explicit nulls are yuuuge <!-- .element: class="fragment" -->
   * minimizing verbosity == maximizing readability <!-- .element: class="fragment" -->
@@ -656,4 +684,9 @@ fun collectionGoodies() {
 
   * https://kotlinlang.org/community/
   * https://github.com/Kotlin/kotlin-koans
+  
+---
+
+## coroutines
+  * experimental in 1.1
   

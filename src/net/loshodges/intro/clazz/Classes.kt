@@ -192,28 +192,33 @@ fun stdLibReceivers() {
     }
 
 
+    fun collectionGoodies() {
+        val list: List<Iterable<Int>> = listOf(
+                listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+                4..55
+        )
 
-fun collectionGoodies() {
-    val list:List<Iterable<Int>> = listOf(
-            listOf(1,2,3,4,5,6,7,8,9,10),
-            4..55
-    )
-
-    // WARNING: NOT LAZY
-    val groupedFlattenedFiltered : Map<Int, List<Int>> = list
-            .asSequence()
-            .flatten()
-            .filter { it % 2 == 0 }
-            .map{ it - 1 }
-            .filter {
-                it > 4
-            }
-            .groupBy { it % 4 }
-}
-
+        // WARNING: NOT LAZY
+        val groupedFlattenedFiltered: Map<Int, List<Int>> = list
+                .asSequence()
+                .flatten()
+                .filter { it % 2 == 0 }
+                .map { it - 1 }
+                .filter {
+                    it > 4
+                }
+                .groupBy { it % 4 }
+    }
 
 
-
+    fun closure() {
+        var sum = 0
+        (1..20).filter { it > 0 }
+                .forEach {
+                    sum += it
+                }
+        print(sum)
+    }
 
 
 }
